@@ -1,6 +1,8 @@
 @use "./variables" as v;
 
 @use "../views/Root/Root";
+@use "../views/Home/Home";
+@use "../components/Features/Features.scss";
 
 html {
     font-family: Avenir, Helvetica, Arial, sans-serif;

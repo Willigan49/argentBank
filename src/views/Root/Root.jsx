@@ -1,3 +1,4 @@
+import { Outlet } from "react-router-dom";
 import argentBankLogo from "../../assets/argentBankLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
@@ -16,11 +17,17 @@ export default function Root() {
         </a>
         <div className="main-nav-link">
           <a className="main-nav-item" href="./sign-in.html">
-            <FontAwesomeIcon className="user-icon" icon={solid("user-circle")} />
+            <FontAwesomeIcon
+              className="user-icon"
+              icon={solid("user-circle")}
+            />
             Sign In
           </a>
         </div>
       </nav>
+      <main>
+        <Outlet />
+      </main>
       <footer className="footer">
         <p className="footer-text">Copyright 2020 Argent Bank</p>
       </footer>
