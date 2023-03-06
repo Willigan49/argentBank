@@ -2,6 +2,8 @@
 
 @use "../views/Root/Root";
 @use "../views/Home/Home";
+@use "../views/Login/Login";
+
 @use "../components/Features/Features.scss";
 
 html {
@@ -10,19 +12,28 @@ html {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     color: map-get(v.$colors, "dark-blue");
+    height: 100%;
+}
+
+#root {
+    height: 100%;
 }
 
 body {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    height: 100%;
 }
 
 .main {
+    overflow: hidden;
     flex: 1;
 }
 
 .bg-dark {
     background-color: map-get(v.$colors, "black");
+}
+
+ul {
+    margin: 0;
+    padding: 0;
 }

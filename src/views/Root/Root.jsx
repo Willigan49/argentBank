@@ -1,31 +1,32 @@
-import { Outlet } from "react-router-dom";
-import argentBankLogo from "../../assets/argentBankLogo.png";
+import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
+import argentBankLogo from "../../assets/argentBankLogo.png";
+
 export default function Root() {
   return (
-    <div>
+    <div className="wrapper">
       <nav className="main-nav">
-        <a className="main-nav-logo" href="./index.html">
+        <Link className="main-nav-logo" to="/">
           <img
             className="main-nav-logo-image"
             src={argentBankLogo}
             alt="Argent Bank Logo"
           />
           <h1 className="sr-only">Argent Bank</h1>
-        </a>
+        </Link>
         <div className="main-nav-link">
-          <a className="main-nav-item" href="./sign-in.html">
+          <Link className="main-nav-item" to="/login">
             <FontAwesomeIcon
               className="user-icon"
               icon={solid("user-circle")}
             />
             Sign In
-          </a>
+          </Link>
         </div>
       </nav>
-      <main>
+      <main className="main">
         <Outlet />
       </main>
       <footer className="footer">
