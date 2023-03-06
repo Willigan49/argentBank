@@ -59,6 +59,18 @@
   width: 20%;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #ccc;
+  padding: 2rem 0 1.5rem;
+}
+
+.footer-text {
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
