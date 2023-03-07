@@ -1,20 +1,29 @@
 import { useState } from "react";
+import { login } from "../../api/authentication";
 
 export default function LoginForm() {
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [userMail, setUserMail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(userName, password);
+  /**
+   * Submit username and password for loging
+   * @param {Event} event 
+   */
+  async function handleSubmit(event) {
+    event.preventDefault();
+    login({email: userMail, password: userPassword});
   }
 
+  /**
+   * Set new username or password value in state
+   * @param {Event} event 
+   */
   function handleChange(event) {
     if (event.target.id === "username") {
-      setUserName(event.target.value);
+      setUserMail(event.target.value);
     }
     if (event.target.id === "password") {
-      setPassword(event.target.value);
+      setUserPassword(event.target.value);
     }
   }
 
