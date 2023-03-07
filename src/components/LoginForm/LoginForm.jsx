@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function LoginForm() {
   const [userName, setUserName] = useState("");
@@ -6,7 +6,7 @@ export default function LoginForm() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(userName, password)
+    console.log(userName, password);
   }
 
   function handleChange(event) {
