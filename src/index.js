@@ -10,6 +10,7 @@ import Login from "./views/Login/Login";
 import Profile from "./views/profile/Profile"
 
 import "./style/style.css";
+import { fetchUser } from "./slices/userSlice";
 
 const router = createBrowserRouter([
   {
@@ -27,12 +28,13 @@ const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
-        loader: () => {
+        loader: async () => {
           const state = store.getState();
           if( !state.auth.accessToken ) {
             return redirect("/login");
           }
-          return null;
+          await store.dispatch(fetchUser(state.auth.accessToken));
+          return store.getState().user.user;
         }
       },
     ],

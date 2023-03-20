@@ -20,7 +20,6 @@ const authenticationSlice = createSlice({
     accessToken: null,
     error: null,
   },
-  reducers: {},
   extraReducers(builder) {
     builder
       .addCase(fetchBearer.pending, (state, action) => {
