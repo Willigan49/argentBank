@@ -3,9 +3,13 @@ import api from "../api/api";
 
 export const fetchBearer = createAsyncThunk(
   "auth/fetchBearer",
-  async (loginPayload) => {
-    const response = await api.post("login", loginPayload);
-    return response.data;
+  async (loginPayload, {rejectWithValue}) => {
+    try {
+      const response = await api.post("login", loginPayload);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data)
+    }
   }
 );
 
@@ -21,6 +25,8 @@ const authenticationSlice = createSlice({
     builder
       .addCase(fetchBearer.pending, (state, action) => {
         state.status = "loading";
+        state.error = null;
+        state.error = null;
       })
       .addCase(fetchBearer.fulfilled, (state, action) => {
         state.status = "succeeded";
@@ -29,7 +35,7 @@ const authenticationSlice = createSlice({
       })
       .addCase(fetchBearer.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.payload.message;
       });
   },
 });

@@ -52,3 +52,8 @@
     padding: 5px;
     font-size: 1.2rem;
 }
+
+.error{
+    font-size: 0.8rem;
+    color: map-get(v.$colors, "red");
+}
