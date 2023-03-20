@@ -1,22 +1,26 @@
 import { useState } from "react";
-import { login } from "../../api/authentication";
+import store from "../store";
+import { fetchBearer } from "../slices/authSlice";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [userMail, setUserMail] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const navigate = useNavigate();
 
   /**
    * Submit username and password for loging
-   * @param {Event} event 
+   * @param {Event} event
    */
   async function handleSubmit(event) {
     event.preventDefault();
-    login({email: userMail, password: userPassword});
+    await store.dispatch(fetchBearer({ email: userMail, password: userPassword }));
+    navigate("/profile");
   }
 
   /**
    * Set new username or password value in state
-   * @param {Event} event 
+   * @param {Event} event
    */
   function handleChange(event) {
     if (event.target.id === "username") {
