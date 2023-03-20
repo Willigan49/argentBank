@@ -17,7 +17,7 @@ export default function Root() {
           <h1 className="sr-only">Argent Bank</h1>
         </Link>
         <div className="main-nav-link">
-          <Link className="main-nav-item" to="/login">
+          <Link className="main-nav-item" to="/profile">
             <FontAwesomeIcon
               className="user-icon"
               icon={solid("user-circle")}
