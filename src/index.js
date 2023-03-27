@@ -13,7 +13,7 @@ import { logout as userLogout } from "./slices/userSlice";
 import Root from "./views/Root/Root";
 import Home from "./views/Home/Home";
 import Login from "./views/Login/Login";
-import Profile from "./views/profile/Profile";
+import Profile from "./views/Profile/Profile";
 
 import "./style/style.css";
 import { fetchUser } from "./slices/userSlice";
