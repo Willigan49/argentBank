@@ -9,6 +9,7 @@ import argentBankLogo from "../../assets/argentBankLogo.png";
 export default function Root() {
   const [isAuthenticate, setIsAuthenticate] = useState(false);
   const token = useSelector((state) => state.auth.accessToken);
+  const user = useSelector((state) => state.user.user);
 
   useEffect(() => {
     token ? setIsAuthenticate(true) : setIsAuthenticate(false);
@@ -35,13 +36,22 @@ export default function Root() {
               Sign In
             </Link>
           ) : (
-            <Link className="main-nav-item" to="/logout">
-              <FontAwesomeIcon
-                className="user-icon"
-                icon={solid("right-from-bracket")}
-              />
-              Sign Out
-            </Link>
+            <div className="main-nav">
+              <Link className="main-nav-item" to="/profile">
+                <FontAwesomeIcon
+                  className="user-icon"
+                  icon={solid("user-circle")}
+                />
+                {user.firstName}
+              </Link>
+              <Link className="main-nav-item" to="/logout">
+                <FontAwesomeIcon
+                  className="user-icon"
+                  icon={solid("right-from-bracket")}
+                />
+                Sign Out
+              </Link>
+            </div>
           )}
         </div>
       </nav>
