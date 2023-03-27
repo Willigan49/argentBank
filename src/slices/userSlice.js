@@ -7,7 +7,7 @@ export const fetchUser = createAsyncThunk(
     try {
       const response = await api.post("profile", null, {
         headers: {
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       return response.data;
@@ -31,6 +31,12 @@ const userSlice = createSlice({
       id: null,
     },
   },
+  reducers: {
+    logout: (state) => {
+      state.user = null;
+      state.status = null;
+    },
+  },
   extraReducers(builder) {
     builder
       .addCase(fetchUser.pending, (state, action) => {
@@ -48,5 +54,7 @@ const userSlice = createSlice({
       });
   },
 });
+
+export const { logout } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -16,15 +16,21 @@ export const fetchBearer = createAsyncThunk(
 const authenticationSlice = createSlice({
   name: "auth",
   initialState: {
-    status: null,
+    status: "disconnected",
     accessToken: null,
     error: null,
+  },
+  reducers: {
+    logout: (state) => {
+      state.accessToken = null;
+      state.error = null;
+      state.status = "disconnected";
+    }
   },
   extraReducers(builder) {
     builder
       .addCase(fetchBearer.pending, (state, action) => {
         state.status = "loading";
-        state.error = null;
         state.error = null;
       })
       .addCase(fetchBearer.fulfilled, (state, action) => {
@@ -39,4 +45,5 @@ const authenticationSlice = createSlice({
   },
 });
 
+export const { logout } = authenticationSlice.actions;
 export default authenticationSlice.reducer;
