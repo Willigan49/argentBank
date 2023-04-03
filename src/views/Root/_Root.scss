@@ -79,3 +79,25 @@
     margin: 0;
     padding: 0;
 }
+
+.logout-button {
+    background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+    text-decoration: none;
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 120px;
+    font-weight: bold;
+    color: map-get(v.$colors, "dark-blue");
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}

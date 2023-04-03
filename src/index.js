@@ -7,8 +7,6 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
-import { logout as authLogout } from "./slices/authSlice";
-import { logout as userLogout } from "./slices/userSlice";
 
 import Root from "./views/Root/Root";
 import Home from "./views/Home/Home";
@@ -41,14 +39,6 @@ const router = createBrowserRouter([
           }
           await store.dispatch(fetchUser(state.auth.accessToken));
           return store.getState().user.user;
-        },
-      },
-      {
-        path: "/logout",
-        loader: () => {
-          store.dispatch(authLogout());
-          store.dispatch(userLogout());
-          return redirect("/");
         },
       },
     ],

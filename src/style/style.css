@@ -78,6 +78,28 @@
   padding: 0;
 }
 
+.logout-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  text-decoration: none;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 120px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+}
+
 .hero {
   background-image: url("../assets/bank-tree.jpeg");
   background-position: 0 -50px;
