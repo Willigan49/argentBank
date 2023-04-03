@@ -50,6 +50,9 @@ export default function UpdateForm({ setDisplayModal }) {
         </div>
         <button className="sign-in-button">Update</button>
       </form>
+      <button className="sign-in-button" onClick={() => setDisplayModal(false)}>
+        close
+      </button>
     </div>
   );
 }
