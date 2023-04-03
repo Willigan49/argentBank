@@ -46,6 +46,10 @@ const userSlice = createSlice({
       updatedAt: null,
       id: null,
     },
+    update: {
+      status: null,
+      error: null,
+    },
   },
   reducers: {
     logout: (state) => {
@@ -69,16 +73,16 @@ const userSlice = createSlice({
         state.error = action.payload.message;
       })
       .addCase(updateUser.pending, (state, action) => {
-        state.status = "loading";
-        state.error = null;
+        state.update.status = "loading";
+        state.update.error = null;
       })
       .addCase(updateUser.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.error = null;
+        state.update.status = "succeeded";
+        state.update.error = null;
       })
       .addCase(updateUser.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.payload.message;
+        state.update.status = "failed";
+        state.update.error = action.payload.message;
       });
   },
 });

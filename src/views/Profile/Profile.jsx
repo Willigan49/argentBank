@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Account from "../../components/Account/Account";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
+import { useSelector } from "react-redux";
 
 export default function Profile() {
   const { firstName, lastName } = useLoaderData();
+  const updateStatus = useSelector((state) => state.user.update.status);
+  const error = useSelector((state) => state.user.update.error);
   const [isDisplayModal, setDisplayModal] = useState(false);
 
   return (
@@ -18,6 +21,12 @@ export default function Profile() {
             <br />
             {firstName} {lastName} !
           </h1>
+          {updateStatus === "succeeded" ? (
+            <p className="validate">update successfully !</p>
+          ) : null}
+          {error ? (
+            <p className="error">error: {error}</p>
+          ) : null}
           <button className="edit-button" onClick={() => setDisplayModal(true)}>
             Edit Name
           </button>

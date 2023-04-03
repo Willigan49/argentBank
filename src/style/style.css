@@ -198,6 +198,11 @@
   padding: 10px;
 }
 
+.validate {
+  font-size: 0.8rem;
+  color: #42b983;
+}
+
 .features {
   display: flex;
   flex-direction: column;

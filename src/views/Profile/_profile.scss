@@ -1,3 +1,5 @@
+@use "../../style/variables" as v;
+
 .header {
     color: #fff;
     margin-bottom: 2rem;
@@ -10,3 +12,8 @@
     font-weight: bold;
     padding: 10px;
   }
+
+  .validate{
+    font-size: 0.8rem;
+    color: map-get(v.$colors, "green");
+}
