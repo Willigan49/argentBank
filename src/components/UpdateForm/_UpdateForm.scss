@@ -1,0 +1,27 @@
+@use "../../style/variables" as v;
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.input-wrapper label {
+    font-weight: bold;
+}
+
+.input-wrapper input {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.update-content {
+    box-sizing: border-box;
+    background-color: map-get(v.$colors, "white");
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    padding: 2rem;
+}

@@ -5,8 +5,9 @@
 @use "../views/Login/Login";
 @use "../views/Profile/profile";
 
-@use "../components/Features/Features.scss";
+@use "../components/Features/Features";
 @use "../components/Account/Account";
+@use "../components/UpdateForm/UpdateForm";
 
 html {
     font-family: Avenir, Helvetica, Arial, sans-serif;
