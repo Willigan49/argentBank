@@ -53,7 +53,12 @@ const userSlice = createSlice({
   },
   reducers: {
     logout: (state) => {
-      state.user = null;
+      state.user.createdAt = null;
+      state.user.updatedAt = null;
+      state.user.email = null;
+      state.user.firstName = null;
+      state.user.lastName = null;
+      state.user.id = null;
       state.status = null;
     },
   },
