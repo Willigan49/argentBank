@@ -61,6 +61,9 @@ const userSlice = createSlice({
       state.user.id = null;
       state.status = null;
     },
+    restoreUpdateStatus: (state) => {
+      state.update.status = null;
+    }
   },
   extraReducers(builder) {
     builder
@@ -92,6 +95,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, restoreUpdateStatus } = userSlice.actions;
 
 export default userSlice.reducer;

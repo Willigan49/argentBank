@@ -1,14 +1,26 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Account from "../../components/Account/Account";
 import UpdateForm from "../../components/UpdateForm/UpdateForm";
-import { useSelector } from "react-redux";
+import { restoreUpdateStatus } from "../../slices/userSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
   const { firstName, lastName } = useLoaderData();
   const updateStatus = useSelector((state) => state.user.update.status);
   const error = useSelector((state) => state.user.update.error);
+  const dispatch = useDispatch();
   const [isDisplayModal, setDisplayModal] = useState(false);
+  const [isVisibleMessage, setVisibleMessage] = useState(false);
+
+  useEffect(() => {
+    if (updateStatus === "succeeded") {
+      setVisibleMessage(true);
+    } else {
+      setVisibleMessage(false);
+    }
+    setTimeout(() => dispatch(restoreUpdateStatus()), 5000);
+  }, [dispatch, updateStatus]);
 
   return (
     <main className="main bg-dark">
@@ -21,12 +33,10 @@ export default function Profile() {
             <br />
             {firstName} {lastName} !
           </h1>
-          {updateStatus === "succeeded" ? (
+          {isVisibleMessage ? (
             <p className="validate">update successfully !</p>
           ) : null}
-          {error ? (
-            <p className="error">error: {error}</p>
-          ) : null}
+          {error ? <p className="error">error: {error}</p> : null}
           <button className="edit-button" onClick={() => setDisplayModal(true)}>
             Edit Name
           </button>
