@@ -24,32 +24,36 @@ export default function Home() {
   ];
 
   return (
-    <div>
-      <div className="hero">
-        <section className="hero-content">
-          <h2 className="sr-only">Promoted Content</h2>
-          <p className="subtitle">No fees.</p>
-          <p className="subtitle">No minimum deposit.</p>
-          <p className="subtitle">High interest rates.</p>
-          <p className="text">Open a savings account with Argent Bank today!</p>
+    <main className="main">
+      <div>
+        <div className="hero">
+          <section className="hero-content">
+            <h2 className="sr-only">Promoted Content</h2>
+            <p className="subtitle">No fees.</p>
+            <p className="subtitle">No minimum deposit.</p>
+            <p className="subtitle">High interest rates.</p>
+            <p className="text">
+              Open a savings account with Argent Bank today!
+            </p>
+          </section>
+        </div>
+        <section className="features">
+          <h2 className="sr-only">Features</h2>
+          <ul className="features">
+            {featuresContent.map((feature, index) => {
+              return (
+                <li className="feature-item" key={index}>
+                  <Features
+                    text={feature.text}
+                    title={feature.title}
+                    icon={feature.icon}
+                  />
+                </li>
+              );
+            })}
+          </ul>
         </section>
       </div>
-      <section className="features">
-        <h2 className="sr-only">Features</h2>
-        <ul className="features">
-          {featuresContent.map((feature, index) => {
-            return (
-              <li className="feature-item" key={index}>
-                <Features
-                  text={feature.text}
-                  title={feature.title}
-                  icon={feature.icon}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      </section>
-    </div>
+    </main>
   );
 }

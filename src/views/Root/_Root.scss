@@ -28,7 +28,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
+    padding: 5px 2px;
+    @media(min-width: 720px) {
+        padding: 5px 20px;
+    }
 }
 
 .main-nav a {

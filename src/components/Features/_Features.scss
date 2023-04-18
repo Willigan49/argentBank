@@ -6,12 +6,6 @@
     list-style: none;
 }
 
-@media (min-width: 920px) {
-    .features {
-        flex-direction: row;
-    }
-}
-
 .feature-icon {
     width: 100px;
     border: 10px solid map-get(v.$colors, "light-green");
@@ -29,4 +23,10 @@
     font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+}
+
+@media (min-width: 920px) {
+    .features {
+        flex-direction: row;
+    }
 }
